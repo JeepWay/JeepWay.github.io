@@ -1,1 +1,155 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>All Posts - JeepWay Blog</title><link>https://jeepway.github.io/posts/</link><description>All Posts | JeepWay Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-TW</language><managingEditor>william.liu0731@gmail.com (JeepWay)</managingEditor><webMaster>william.liu0731@gmail.com (JeepWay)</webMaster><lastBuildDate>Mon, 11 Aug 2025 09:35:44 +0800</lastBuildDate><atom:link href="https://jeepway.github.io/posts/" rel="self" type="application/rss+xml"/></channel></rss>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>All Posts - JeepWay Blog</title><link>https://jeepway.github.io/posts/</link><description>All Posts | JeepWay Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-TW</language><managingEditor>william.liu0731@gmail.com (JeepWay)</managingEditor><webMaster>william.liu0731@gmail.com (JeepWay)</webMaster><lastBuildDate>Mon, 11 Aug 2025 09:35:44 +0800</lastBuildDate><atom:link href="https://jeepway.github.io/posts/" rel="self" type="application/rss+xml"/><item><title>在 Raspberry Pi 安裝 miniconda</title><link>https://jeepway.github.io/raspberry5-install-miniconda/</link><pubDate>Mon, 11 Aug 2025 09:35:44 +0800</pubDate><author>JeepWay</author><guid>https://jeepway.github.io/raspberry5-install-miniconda/</guid><description><![CDATA[<h1 id="在-raspberry-pi-安裝-miniconda">在 Raspberry Pi 安裝 miniconda</h1>
+<h2 id="前言">前言</h2>
+<p>為了讓每個 python 專案有自己的專屬環境來管理套件，而不去影響其他專案，最好是安裝環境管理系統，像是 Anaconda 或是 miniconda。
+因為在大部分情況下，Anaconda 的很多功能都用不到，所以安裝體積更小的 miniconda 才是好選擇。</p>]]></description></item><item><title>在 Raspberry Pi 5 安裝 Docker</title><link>https://jeepway.github.io/raspberry5-install-docker/</link><pubDate>Fri, 08 Aug 2025 09:18:16 +0800</pubDate><author>JeepWay</author><guid>https://jeepway.github.io/raspberry5-install-docker/</guid><description><![CDATA[<h1 id="在-raspberry-pi-安裝-docker">在 Raspberry Pi 安裝 Docker</h1>
+<h2 id="安裝步驟">安裝步驟</h2>
+<ol>
+<li>安裝 Docker
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -sSL https://get.docker.com <span class="p">|</span> sh</span></span></code></pre></div></div>
+</li>
+<li>為當前用戶 pi 新增執行 Docker 指令的權限，新增完後需要重新開機才能生效。
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo usermod -aG docker pi</span></span></code></pre></div></div>
+<ul>
+<li>若沒有新增，則每次都需要加上 <code>sudo</code>，蠻麻煩的。</li>
+<li>如果有自訂你的用戶名稱，則把 pi 改成你的自訂的。</li>
+<li>當前用戶和群組可以用以下相關命令查詢。
+<div class="code-block code-line-numbers" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 直接顯示當前終端機的用戶名稱</span>
+</span></span><span class="line"><span class="cl">$ whoami
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 顯示當前用戶的詳細資訊，包括用戶 ID（UID）、群組 ID（GID）以及用戶所屬的所有群組。</span>
+</span></span><span class="line"><span class="cl">$ id
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 顯示當前用戶的環境變數 $USER</span>
+</span></span><span class="line"><span class="cl">$ <span class="nb">echo</span> <span class="nv">$USER</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 列出所有當前登入系統的用戶，包括終端機或遠端會話的用戶名稱</span>
+</span></span><span class="line"><span class="cl">$ who
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 列出當前用戶所屬的所有群組</span>
+</span></span><span class="line"><span class="cl">$ groups
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 查看所有群組的配置檔案</span>
+</span></span><span class="line"><span class="cl">$ cat /etc/group</span></span></code></pre></div></div>
+</li>
+</ul>
+</li>
+<li>測試是否成功安裝 Docker
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker run hello-world</span></span></code></pre></div></div>
+<ul>
+<li>有出現以下內容就是安裝成功了
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ docker run hello-world
+</span></span><span class="line"><span class="cl">....
+</span></span><span class="line"><span class="cl">Hello from Docker!
+</span></span><span class="line"><span class="cl">This message shows that your installation appears to be working correctly.
+</span></span><span class="line"><span class="cl">....</span></span></code></pre></div></div>
+</li>
+<li>若沒有重新開機過，則要改成執行 <code>sudo docker run hello-world</code>。</li>
+</ul>
+</li>
+<li>查看 Docker 的 Client 和 Server 是否皆啟動
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-badsh">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">docker version</span></span></code></pre></div></div>
+<ul>
+<li>有出現以下就是成功
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">Client: Docker Engine - Community
+</span></span><span class="line"><span class="cl"> Version:           28.3.3
+</span></span><span class="line"><span class="cl"> API version:       1.51
+</span></span><span class="line"><span class="cl"> Go version:        go1.24.5
+</span></span><span class="line"><span class="cl"> Git commit:        980b856
+</span></span><span class="line"><span class="cl"> Built:             Fri Jul <span class="m">25</span> 11:35:32 <span class="m">2025</span>
+</span></span><span class="line"><span class="cl"> OS/Arch:           linux/arm64
+</span></span><span class="line"><span class="cl"> Context:           default
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Server: Docker Engine - Community
+</span></span><span class="line"><span class="cl"> Engine:
+</span></span><span class="line"><span class="cl">  Version:          28.3.3
+</span></span><span class="line"><span class="cl">  API version:      1.51 <span class="o">(</span>minimum version 1.24<span class="o">)</span>
+</span></span><span class="line"><span class="cl">  Go version:       go1.24.5
+</span></span><span class="line"><span class="cl">  Git commit:       bea959c
+</span></span><span class="line"><span class="cl">  Built:            Fri Jul <span class="m">25</span> 11:35:32 <span class="m">2025</span>
+</span></span><span class="line"><span class="cl">  OS/Arch:          linux/arm64
+</span></span><span class="line"><span class="cl">  Experimental:     <span class="nb">false</span>
+</span></span><span class="line"><span class="cl"> containerd:
+</span></span><span class="line"><span class="cl">  Version:          1.7.27
+</span></span><span class="line"><span class="cl">  GitCommit:        05044ec0a9a75232cad458027ca83437aae3f4da
+</span></span><span class="line"><span class="cl"> runc:
+</span></span><span class="line"><span class="cl">  Version:          1.2.5
+</span></span><span class="line"><span class="cl">  GitCommit:        v1.2.5-0-g59923ef
+</span></span><span class="line"><span class="cl"> docker-init:
+</span></span><span class="line"><span class="cl">  Version:          0.19.0
+</span></span><span class="line"><span class="cl">  GitCommit:        de40ad0</span></span></code></pre></div></div>
+</li>
+</ul>
+</li>
+<li>查看 Docker 的使用方式
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker --help</span></span></code></pre></div></div>
+<div class="code-block code-line-numbers open" style="counter-reset: code-block 0">
+    <div class="code-header language-bash">
+        <span class="code-title"><i class="arrow fas fa-angle-right fa-fw" aria-hidden="true"></i></span>
+        <span class="ellipses"><i class="fas fa-ellipsis-h fa-fw" aria-hidden="true"></i></span>
+        <span class="copy" title="Copy to clipboard"><i class="far fa-copy fa-fw" aria-hidden="true"></i></span>
+    </div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker compose --help</span></span></code></pre></div></div>
+</li>
+</ol>
+<h2 id="新增命名方式">新增命名方式</h2>
+<p>把舊版的 docker compose 用法 <code>docker-compose</code> 加到環境變數的 alias，輸入以下命來來把述加到換境變數檔案 <code>~/.bashrc</code> 裡面，然後更新 <code>~/.bashrc</code>。</p>]]></description></item><item><title>在 Raspberry Pi 5 安裝 Ubuntu Desktop，並用 SSH 遠端控制</title><link>https://jeepway.github.io/raspberry5-install-ubuntu/</link><pubDate>Mon, 04 Aug 2025 08:51:38 +0800</pubDate><author>JeepWay</author><guid>https://jeepway.github.io/raspberry5-install-ubuntu/</guid><description><![CDATA[<h1 id="在-raspberry-pi-5-安裝-ubuntu-desktop並用-ssh-遠端控制">在 Raspberry Pi 5 安裝 Ubuntu Desktop，並用 SSH 遠端控制</h1>
+<h2 id="參考影片和文章">參考影片和文章</h2>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=Vl2B2Zcxai0&amp;list=PLFzg1I0R-W6yWjVEBhYtfYvoNB8iz2-xx" target="_blank" rel="noopener noreffer ">2025更新版 - Raspberry Pi #22集 - 無痛安裝，免買鍵盤螢幕！(中文字幕)</a></li>
+<li><a href="https://blog.csdn.net/weixin_42008031/article/details/132378792" target="_blank" rel="noopener noreffer ">[Raspberry Pi]如何用VNC遠端控制樹莓派(Ubuntu desktop 23.04)?</a></li>
+<li><a href="https://blog.csdn.net/guojingyue123/article/details/135914906" target="_blank" rel="noopener noreffer ">（树莓派Raspberry Pi 5系列文章）一、安装ubuntu24.04操作系统</a></li>
+<li><a href="https://www.reddit.com/r/raspberry_pi/comments/17ua49o/rpi_5_is_a_real_primadonna_with_its_psu/" target="_blank" rel="noopener noreffer ">RPi 5 is a real primadonna with its PSU requirements for USB booting</a></li>
+<li><a href="https://tedliou.com/raspberrypi/vscode-remote-development/" target="_blank" rel="noopener noreffer ">[樹莓派 5] 使用 VS Code 遠端開發 Python 程式</a></li>
+<li><a href="https://blog.csdn.net/aimeige/article/details/143043553" target="_blank" rel="noopener noreffer ">树莓派5 调速风扇，主动散热器调速控制</a></li>
+<li><a href="https://gradient-drift.medium.com/raspberry-pi%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-%E4%B8%89-%E6%8C%87%E4%BB%A4%E8%88%87%E5%8A%9F%E8%83%BD-b9e1a7a6a14" target="_blank" rel="noopener noreffer ">Raspberry Pi學習筆記（三）：指令與功能</a></li>
+</ul>
+<h2 id="0-安裝前注意事項">0. 安裝前注意事項</h2>
+<ul>
+<li>請使用官方電源！！！不然你高機率動不起來，或是動到一半就突然關機。</li>
+<li>製作開機隨身碟時，請確認隨身碟的<strong>磁碟分割樣式</strong>為 GPT，而不是MBR，用 MBR 的話會導致安裝時出現錯誤，詳情請見這個影片：<a href="https://youtu.be/szlNPdAt3Kk?si=Ek3xTJiH0HBedR5d&amp;t=152" target="_blank" rel="noopener noreffer ">Windows 11 安装 Ubuntu 22.04 双系统步骤和注意事项</a>。</li>
+<li>磁碟分割樣式的查看方式（Window11）為：電腦管理 &gt; 磁碟管理 &gt; 右鍵磁碟X (隨身碟所在磁碟) &gt; 內容 &gt; 磁碟區。
+</li>
+<li>如果是 MBR 的話，請把他換成 GPT，這部分可以使用經典的 <a href="https://rufus.ie/zh_TW/" target="_blank" rel="noopener noreffer ">Rufus</a> 燒錄軟體來更改成 MBR，如下圖。
+</li>
+</ul>
+<h2 id="1-下載-raspberry-pi-imager">1. 下載 Raspberry Pi Imager</h2>
+<p>先到樹莓派官網的<a href="https://www.raspberrypi.com/software/" target="_blank" rel="noopener noreffer ">軟體頁面</a>，下載 Raspberry Pi Imager，這個軟體可以協助我們燒錄 Bootloader 和 OS 到 USB 或 SD 卡裡面。</p>]]></description></item></channel></rss>
