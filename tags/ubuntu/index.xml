@@ -1,0 +1,10 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Ubuntu - Tag - JeepWay Blog</title><link>https://jeepway.github.io/tags/ubuntu/</link><description>Ubuntu - Tag - JeepWay Blog</description><generator>Hugo -- gohugo.io</generator><language>zh-TW</language><managingEditor>william.liu0731@gmail.com (JeepWay)</managingEditor><webMaster>william.liu0731@gmail.com (JeepWay)</webMaster><lastBuildDate>Thu, 14 Aug 2025 01:42:18 +0800</lastBuildDate><atom:link href="https://jeepway.github.io/tags/ubuntu/" rel="self" type="application/rss+xml"/><item><title>Window 11 下刪除雙系統中的 Ununtu</title><link>https://jeepway.github.io/window-remove-ubuntu/</link><pubDate>Thu, 14 Aug 2025 01:42:18 +0800</pubDate><author>JeepWay</author><guid>https://jeepway.github.io/window-remove-ubuntu/</guid><description><![CDATA[<h1 id="window-11-下刪除雙系統中的-ununtu">Window 11 下刪除雙系統中的 Ununtu</h1>
+<p>當初裝 Ununtu 的容量切得太大了，幾乎都沒用到，導致 C 槽幾乎沒有空間，所以想要把 Ubuntu 砍掉重裝</p>
+<ul>
+<li><a href="https://medium.com/@wade3c/%E5%88%AA%E9%99%A4%E9%9B%99%E7%B3%BB%E7%B5%B1%E4%B8%AD%E7%9A%84ubuntu-90d8b2327669" target="_blank" rel="noopener noreffer ">刪除雙系統中的Ubuntu</a></li>
+<li><a href="https://zh-tw.ubunlog.com/%E5%A6%82%E4%BD%95%E5%8D%B8%E8%BC%89ubuntu/" target="_blank" rel="noopener noreffer ">如何從我的電腦上卸載 Ubuntu</a></li>
+</ul>
+<h2 id="刪除-ununtu-占用的磁區">刪除 Ununtu 占用的磁區</h2>
+<p>搜尋並點擊<strong>電腦管理</strong>，對 Ubuntu 所在的磁碟 (通常會是 EXT 格式) 按右鍵，然後選擇<strong>刪除磁碟區</strong>。
+<strong>備註：這邊的配置很怪，因為我之前用了 EaseUS Partition Master 來把 D 槽的一些容量切給 C 槽，導致 E 槽跟 1GB 空間出現問題，而 E 槽跟 1GB 空間對應原本的 Ubuntu 磁碟跟修復磁碟分割。</strong>
+</p>]]></description></item></channel></rss>
