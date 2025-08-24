@@ -1,7 +1,9 @@
-# 在 Raspberry Pi 5 安裝 Docker
-
-
 # 在 Raspberry Pi 安裝 Docker
+
+
+介紹如何在 Raspberry Pi 5 上安裝 Docker，其他版本的樹莓派也適用，並且把當前使用者加入到 Docker 的 group，以便每次呼叫時省去輸入 `sudo` 和密碼的步驟。
+
+<!--more-->
 
 ## 安裝步驟
 1. 安裝 Docker

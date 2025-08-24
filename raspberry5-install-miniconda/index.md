@@ -1,7 +1,9 @@
 # 在 Raspberry Pi 安裝 miniconda
 
 
-# 在 Raspberry Pi 安裝 miniconda
+介紹如何在 Raspberry Pi 5 上安裝 Miniconda，其他版本的樹莓派也適用。你也可以安裝 Anaconda，但是大部分功能都沒用到，所以可以安裝 Miniconda 就好。
+
+<!--more-->
 
 ## 前言
 為了讓每個 python 專案有自己的專屬環境來管理套件，而不去影響其他專案，最好是安裝環境管理系統，像是 Anaconda 或是 miniconda。
@@ -26,21 +28,20 @@ wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-aarch64.sh
 bash Miniconda3-latest-Linux-aarch64.sh
 ```
 
-你會先看到以下，直接看 `ENTER` 鍵就好
-![image](https://hackmd.io/_uploads/SkiWr_vueg.png)
+你會先看到以下，直接看 `ENTER` 鍵就好  
+<img src="https://lh3.googleusercontent.com/pw/AP1GczONH4anKnGeuBwNUGZpjCRYg5LxfQsJZeXIltIYso7rsWX8JrwJ0xUTBWvkRfcbQHN_hJjwQqa95iBRh9Q27RSHH7u5_jsH9qQL_P5B4o0aG6Fa-1BjlRKEXU4Bat5fLIjjJq1_cnjC6Wo73qhfBWS1=w663-h154-s-no-gm?authuser=0" alt="rpi5-install-miniconda-step1" title="rpi5-install-miniconda-step1">
 
-接著往下滑或按任何鍵，直到出現以下畫面，然後輸入 `yes`
-![image](https://hackmd.io/_uploads/rJGISdwOgl.png)
+接著往下滑或按任何鍵，直到出現以下畫面，然後輸入 `yes`  
+<img src="https://lh3.googleusercontent.com/pw/AP1GczO9ehYco92oz3WFLxAe2-rLWvG8H45AO_C4mE4U2KFcUu6GCthudPrynQTXuZODoLL7Z7s6Oo5uUA0NPMU2LYewdCoMQyJYDGzPRJbuPI0EptcOmZJKU1ENF41NytUoTFCobgUaSmehhfZIobdln2Ff=w1105-h559-s-no-gm?authuser=0" alt="rpi5-install-miniconda-step2" title="rpi5-install-miniconda-step2">
 
-然後會被詢問安裝位置，直接默認就好，直接按下 `ENTER` 鍵
-![image](https://hackmd.io/_uploads/SyBtSOvOll.png)
+然後會被詢問安裝位置，直接默認就好，直接按下 `ENTER` 鍵  
+<img src="https://lh3.googleusercontent.com/pw/AP1GczO7uTLhK7hREqDFFJsiCglkNXMqOT_V-51QDCyIGC0TV01F_iC5fNK5h5W1rY5C_bnWx2Yh_omBA0Lp__S6BHxaDKAr5ubgAr0jSM6F3Hf9PftlANdoxhT0A4_dqX1k4DDfpVEo0BDUfrQaVO63_1DJ=w493-h220-s-no-gm?authuser=0" alt="rpi5-install-miniconda-step3" title="rpi5-install-miniconda-step3">
 
-接著會被問要不要自動初始化 conda，預設不要就好，直接按下 `ENTER` 
-![image](https://hackmd.io/_uploads/ByqLIuPdee.png)
+接著會被問要不要自動初始化 conda，預設不要就好，直接按下 `ENTER`  
+<img src="https://lh3.googleusercontent.com/pw/AP1GczMS1ODzS0oGwXxq8G-0g3ph11CKzGHROYVCXSJMV7P2v9jLsLcNRYk2iFtbom2OuqNa_9cvDhAgYPkJqGJBJm8-0uQiU0RPl2GNqNFXjbRKSftZNcupVy-MlCKBFlPWD0Nx3xOdbZRbfNeR_u4O10o8=w822-h311-s-no-gm?authuser=0" alt="rpi5-install-miniconda-step4" title="rpi5-install-miniconda-step4">
 
-然後就可以看到安裝成功了
-![image](https://hackmd.io/_uploads/BJytU_wOge.png)
-
+然後就可以看到安裝成功了  
+<img src="https://lh3.googleusercontent.com/pw/AP1GczNDDvraVi5_nW_R7jO_XtbDPvby6NyH1qvI_eMRtADy7YQe-xP6EXtPIwUPWiEPaGKno3GI7os8c_rhP6akbpzP9E06qZn0HyclCe_zBEgG1t2dg1TZmJ01v6c-JN2YcQBHhv02U-cESTp_d4T3ZRrL=w696-h215-s-no-gm?authuser=0" alt="rpi5-install-miniconda-step5" title="rpi5-install-miniconda-step5">
 
 ## 設置環境變數
 打開 `.bashrc` 來編輯。如果沒有安裝 vim 的話先安裝。
@@ -52,7 +53,7 @@ vim ~/.bashrc
 ```
 export PATH="$HOME/miniconda3/bin":$PATH
 ```
-![image](https://hackmd.io/_uploads/rymnD_Pdxe.png)
+<img src="https://lh3.googleusercontent.com/pw/AP1GczMpUg6OdK7hLTmEvpFwCX4XFycCrbmyElugcqfW2iD8TnmJFnGhw0Z1Nf1MbPkWBt8W5z67-ScSTQCwIpqApcpuoj33_DLGkM5T69d1Mgk683bW0WiwUpul-g2SD-jw5qP55xvYagHP1aTgUhl15p59=w630-h237-s-no-gm?authuser=0" alt="rpi5-install-miniconda-step6" title="rpi5-install-miniconda-step6">
 
 
 然後按下 EXC 鍵，並輸入 `wq` 來保存定退出 vim。
